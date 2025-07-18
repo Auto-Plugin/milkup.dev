@@ -46,7 +46,7 @@
   left: 0;
   .intro {
     position: absolute;
-    top: 220%;
+    top: 221%;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 40px);
