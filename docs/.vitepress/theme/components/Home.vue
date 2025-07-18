@@ -13,7 +13,7 @@
     <div class="titles">
       <span class="mainTitle">Milk<span class="up">Up</span><span class="down">down</span></span>
       <span class="subTitle"><span class="up">A desktop WYSIWYG Markdown editor</span> <span class="down">A plugin driven framework to build WYSIWYG Markdown editor.</span></span>
-      <span class="download">Download</span>
+      <a href="https://github.com/Auto-Plugin/milkup/releases" target="_blank" class="download">Download</a>
     </div>
     <div class="case">
       <img src="../assets/dark2.png" alt="" />
@@ -46,7 +46,7 @@
   left: 0;
   .intro {
     position: absolute;
-    top: 221%;
+    top: 220%;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 40px);
@@ -145,9 +145,13 @@
     }
     .subTitle {
       font-size: 24px;
-      line-height: 32px;
+      line-height: 24px;
       margin: 40px 0;
       font-weight: normal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     .download {
       background: #6b8bb3;
