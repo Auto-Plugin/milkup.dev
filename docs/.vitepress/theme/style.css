@@ -19,7 +19,9 @@
 ::-webkit-scrollbar-thumb:active {
   background: rgba(76, 86, 106, 0.9);
 }
-
+#app,body,html{
+  overflow: hidden;
+}
 a {
   color: var(--color);
   text-decoration: none;
