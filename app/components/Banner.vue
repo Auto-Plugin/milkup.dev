@@ -10,6 +10,9 @@ import milkupSvg from '~/assets/imgs/milk.svg?raw';
       <h4>免费 & 所见即所得 & 桌面端 markdown 编辑器</h4>
       <h6>a free WYSIWYG desktop markdown editor</h6>
     </div>
+    <a class="download" href="https://github.com/Auto-Plugin/milkup/releases" target="_blank">
+      <span>download</span>
+    </a>
   </section>
 </template>
 
@@ -18,6 +21,7 @@ import milkupSvg from '~/assets/imgs/milk.svg?raw';
   width: 100%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -39,6 +43,21 @@ import milkupSvg from '~/assets/imgs/milk.svg?raw';
     h6 {
       font-size: 16px;
       color: var(--text-2);
+    }
+  }
+
+  .download {
+    position: relative;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--color-1);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+
+    &:hover {
+      background-color: var(--color-2);
     }
   }
 
