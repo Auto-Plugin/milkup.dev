@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: milkup;
+}
+
+a {
+  color: var(--color-link);
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+@font-face {
+  font-family: 'milkup';
+  src: url('/milk.woff2') format('woff2');
+}
+
+:root {
+  --color: #494E59;
+  --color-1: #4c566a;
+  --color-link: #001325;
+  --color-link-hover: #00457C;
+
+  --background: #eceff4;
+  --background-milk: #f4f5f8;
+  --background-1: #e5e9f0;
+  --background-2: #eceff4;
+  --background-3: #e5e7eb;
+  --background-4: oklab(95.1276% -.00119922 -.00734812/.8);
+}
