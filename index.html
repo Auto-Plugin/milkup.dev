@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>milkup — A Desktop Instant-Rendering Markdown Editor</title>
+  <meta name="description" content="milkup is a desktop instant-rendering Markdown editor with AI writing, theme customization, and Mermaid support." />
+  <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="https://github.com/Auto-Plugin/milkup/releases" class="nav-download" target="_blank" rel="noopener" data-i18n="footer.download"></a>
+    <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">中/EN</button>
+  </nav>
+
+  <div id="app">
+    <!-- Hero -->
+    <section id="hero" class="section hero">
+      <canvas id="particles"></canvas>
+      <div class="hero-content">
+        <div class="logo-wrap">
+          <svg id="logo-svg" viewBox="0 0 1024 1024" width="120" height="120">
+            <path class="logo-path" d="M701.44 752.64l248.30464-422.4-496.6144 0z" fill="none" stroke="#D8DEE9" stroke-width="8"/>
+            <path class="logo-path" d="M322.56 752.64l248.30464-422.4-496.6144 0z" fill="none" stroke="#4C566A" stroke-width="8"/>
+            <path class="logo-path" d="M304.81 773.1a30.72 30.72 0 0 1-11.24-41.96l240.81-417.1a30.72 30.72 0 1 1 53.21 30.72l-240.81 417.1a30.72 30.72 0 0 1-41.97 11.24z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+            <path class="logo-path" d="M60.44 302.81a30.72 30.72 0 0 0-11.24 41.96l240.81 417.1a30.72 30.72 0 0 0 53.21-30.72L102.4 314.06a30.72 30.72 0 0 0-41.96-11.24z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+            <path class="logo-path" d="M738.86 747.52a30.72 30.72 0 0 1-30.72 30.72H322.56a30.72 30.72 0 1 1 0-61.44h385.58a30.72 30.72 0 0 1 30.72 30.72z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+            <path class="logo-path" d="M976.9 330.75a30.72 30.72 0 0 1-30.72 30.72H566.03a30.72 30.72 0 1 1 0-61.44h380.15a30.72 30.72 0 0 1 30.72 30.72z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+            <path class="logo-path" d="M695.5 773.1a30.72 30.72 0 0 1-11.24-41.96l240.81-417.1a30.72 30.72 0 1 1 53.21 30.72l-240.81 417.1a30.72 30.72 0 0 1-41.96 11.24z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+          </svg>
+        </div>
+        <h1 class="hero-title">milkup</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+        <div class="scroll-hint"><span class="scroll-arrow">↓</span></div>
+      </div>
+    </section>
+
+    <!-- Preview (merged features + customization) -->
+    <section id="preview" class="section preview">
+      <h2 class="section-title" data-i18n="preview.title"></h2>
+      <div class="preview-scene">
+        <div class="preview-track">
+          <!-- depth: 1=front/fast, 3=back/slow -->
+          <div class="pv-item" data-depth="1" data-key="ai"><img src="/AI续写.gif" alt="AI" /></div>
+          <div class="pv-item" data-depth="3" data-key="theme"><img src="/customTheme.png" alt="Theme" /></div>
+          <div class="pv-item" data-depth="2" data-key="render"><img src="/switchrendermode.gif" alt="Render" /></div>
+          <div class="pv-item" data-depth="1" data-key="keymap"><img src="/customKeymap.png" alt="Keymap" /></div>
+          <div class="pv-item" data-depth="3" data-key="mermaid"><img src="/mermaidSuport.gif" alt="Mermaid" /></div>
+          <div class="pv-item" data-depth="2" data-key="i18n"><img src="/i18n.png" alt="i18n" /></div>
+          <div class="pv-item" data-depth="1" data-key="outline"><img src="/outlineAndFolderSuport.gif" alt="Outline" /></div>
+          <div class="pv-item" data-depth="3" data-key="aisettings"><img src="/AISettings.png" alt="AI Settings" /></div>
+          <!-- duplicate set for looping -->
+          <div class="pv-item" data-depth="2" data-key="ai"><img src="/AI续写.gif" alt="AI" /></div>
+          <div class="pv-item" data-depth="1" data-key="theme"><img src="/customTheme.png" alt="Theme" /></div>
+          <div class="pv-item" data-depth="3" data-key="render"><img src="/switchrendermode.gif" alt="Render" /></div>
+          <div class="pv-item" data-depth="2" data-key="keymap"><img src="/customKeymap.png" alt="Keymap" /></div>
+          <div class="pv-item" data-depth="1" data-key="mermaid"><img src="/mermaidSuport.gif" alt="Mermaid" /></div>
+          <div class="pv-item" data-depth="3" data-key="i18n"><img src="/i18n.png" alt="i18n" /></div>
+          <div class="pv-item" data-depth="2" data-key="outline"><img src="/outlineAndFolderSuport.gif" alt="Outline" /></div>
+          <div class="pv-item" data-depth="1" data-key="aisettings"><img src="/AISettings.png" alt="AI Settings" /></div>
+          <!-- third set for density -->
+          <div class="pv-item" data-depth="3" data-key="ai"><img src="/AI续写.gif" alt="AI" /></div>
+          <div class="pv-item" data-depth="2" data-key="render"><img src="/switchrendermode.gif" alt="Render" /></div>
+          <div class="pv-item" data-depth="1" data-key="mermaid"><img src="/mermaidSuport.gif" alt="Mermaid" /></div>
+          <div class="pv-item" data-depth="3" data-key="keymap"><img src="/customKeymap.png" alt="Keymap" /></div>
+          <div class="pv-item" data-depth="2" data-key="theme"><img src="/customTheme.png" alt="Theme" /></div>
+          <div class="pv-item" data-depth="1" data-key="i18n"><img src="/i18n.png" alt="i18n" /></div>
+        </div>
+      </div>
+      <!-- Detail modal -->
+      <div class="pv-modal" id="pv-modal">
+        <div class="pv-modal-body">
+          <img class="pv-modal-img" src="" alt="" />
+          <h3 class="pv-modal-title"></h3>
+          <p class="pv-modal-desc"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Themes (waterfall horizontal scroll) -->
+    <section id="themes" class="section themes">
+      <h2 class="section-title" data-i18n="themes.title"></h2>
+      <div class="themes-scene">
+        <div class="themes-track">
+          <div class="tm-item" data-name="themes.1"><img src="/theme1.png" alt="Theme 1" /><div class="tm-overlay"><span data-i18n="themes.1"></span></div></div>
+          <div class="tm-item" data-name="themes.4"><img src="/theme4.png" alt="Theme 4" /><div class="tm-overlay"><span data-i18n="themes.4"></span></div></div>
+          <div class="tm-item" data-name="themes.3"><img src="/theme3.png" alt="Theme 3" /><div class="tm-overlay"><span data-i18n="themes.3"></span></div></div>
+          <div class="tm-item" data-name="themes.6"><img src="/theme6.png" alt="Theme 6" /><div class="tm-overlay"><span data-i18n="themes.6"></span></div></div>
+          <div class="tm-item" data-name="themes.5"><img src="/theme5.png" alt="Theme 5" /><div class="tm-overlay"><span data-i18n="themes.5"></span></div></div>
+          <div class="tm-item" data-name="themes.2"><img src="/theme2.png" alt="Theme 2" /><div class="tm-overlay"><span data-i18n="themes.2"></span></div></div>
+          <!-- duplicate for looping -->
+          <div class="tm-item" data-name="themes.4"><img src="/theme4.png" alt="Theme 4" /><div class="tm-overlay"><span data-i18n="themes.4"></span></div></div>
+          <div class="tm-item" data-name="themes.1"><img src="/theme1.png" alt="Theme 1" /><div class="tm-overlay"><span data-i18n="themes.1"></span></div></div>
+          <div class="tm-item" data-name="themes.6"><img src="/theme6.png" alt="Theme 6" /><div class="tm-overlay"><span data-i18n="themes.6"></span></div></div>
+          <div class="tm-item" data-name="themes.3"><img src="/theme3.png" alt="Theme 3" /><div class="tm-overlay"><span data-i18n="themes.3"></span></div></div>
+          <div class="tm-item" data-name="themes.2"><img src="/theme2.png" alt="Theme 2" /><div class="tm-overlay"><span data-i18n="themes.2"></span></div></div>
+          <div class="tm-item" data-name="themes.5"><img src="/theme5.png" alt="Theme 5" /><div class="tm-overlay"><span data-i18n="themes.5"></span></div></div>
+          <!-- third set to fill right edge -->
+          <div class="tm-item" data-name="themes.3"><img src="/theme3.png" alt="Theme 3" /><div class="tm-overlay"><span data-i18n="themes.3"></span></div></div>
+          <div class="tm-item" data-name="themes.6"><img src="/theme6.png" alt="Theme 6" /><div class="tm-overlay"><span data-i18n="themes.6"></span></div></div>
+          <div class="tm-item" data-name="themes.1"><img src="/theme1.png" alt="Theme 1" /><div class="tm-overlay"><span data-i18n="themes.1"></span></div></div>
+          <div class="tm-item" data-name="themes.4"><img src="/theme4.png" alt="Theme 4" /><div class="tm-overlay"><span data-i18n="themes.4"></span></div></div>
+          <div class="tm-item" data-name="themes.5"><img src="/theme5.png" alt="Theme 5" /><div class="tm-overlay"><span data-i18n="themes.5"></span></div></div>
+          <div class="tm-item" data-name="themes.2"><img src="/theme2.png" alt="Theme 2" /><div class="tm-overlay"><span data-i18n="themes.2"></span></div></div>
+        </div>
+      </div>
+      <!-- Footer overlay (appears at end of scroll) -->
+      <div class="themes-footer">
+        <div class="footer-content">
+          <div class="ft-logo-wrap" style="opacity:0">
+            <svg class="ft-logo-svg" viewBox="0 0 1024 1024" width="80" height="80">
+              <path class="ft-logo-path" d="M701.44 752.64l248.30464-422.4-496.6144 0z" fill="none" stroke="#D8DEE9" stroke-width="8"/>
+              <path class="ft-logo-path" d="M322.56 752.64l248.30464-422.4-496.6144 0z" fill="none" stroke="#4C566A" stroke-width="8"/>
+              <path class="ft-logo-path" d="M304.81 773.1a30.72 30.72 0 0 1-11.24-41.96l240.81-417.1a30.72 30.72 0 1 1 53.21 30.72l-240.81 417.1a30.72 30.72 0 0 1-41.97 11.24z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+              <path class="ft-logo-path" d="M60.44 302.81a30.72 30.72 0 0 0-11.24 41.96l240.81 417.1a30.72 30.72 0 0 0 53.21-30.72L102.4 314.06a30.72 30.72 0 0 0-41.96-11.24z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+              <path class="ft-logo-path" d="M738.86 747.52a30.72 30.72 0 0 1-30.72 30.72H322.56a30.72 30.72 0 1 1 0-61.44h385.58a30.72 30.72 0 0 1 30.72 30.72z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+              <path class="ft-logo-path" d="M976.9 330.75a30.72 30.72 0 0 1-30.72 30.72H566.03a30.72 30.72 0 1 1 0-61.44h380.15a30.72 30.72 0 0 1 30.72 30.72z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+              <path class="ft-logo-path" d="M695.5 773.1a30.72 30.72 0 0 1-11.24-41.96l240.81-417.1a30.72 30.72 0 1 1 53.21 30.72l-240.81 417.1a30.72 30.72 0 0 1-41.96 11.24z" fill="none" stroke="#81A1C1" stroke-width="4"/>
+            </svg>
+          </div>
+          <h2 class="ft-title" style="opacity:0">milkup</h2>
+          <h2 class="cta-title" data-i18n="footer.cta"></h2>
+          <a href="https://github.com/Auto-Plugin/milkup/releases" class="cta-btn magnetic" target="_blank" rel="noopener" data-i18n="footer.download"></a>
+          <a href="https://github.com/Auto-Plugin/milkup" class="github-link" target="_blank" rel="noopener" data-i18n="footer.github"></a>
+          <div class="powered-by">Powered by <a href="https://github.com/Auto-Plugin" target="_blank" rel="noopener">Auto-Plugin</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
